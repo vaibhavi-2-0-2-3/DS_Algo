@@ -1,9 +1,9 @@
 class Twitter {
-    int timestamp;
-    unordered_map<int, vector<pair<int, int>>>tweetMap;
-    unordered_map<int, unordered_set<int>>followMap;
-
 public:
+    int timestamp;
+    unordered_map<int, vector<pair<int, int>>> tweetMap;
+    unordered_map<int, unordered_set<int>> followMap;
+
     Twitter() {
         timestamp = 0;
     }
@@ -19,7 +19,7 @@ public:
         for(auto &followeeId : followMap[userId]){
             for(auto &tweet : tweetMap[followeeId]){
                 pq.push(tweet);
-                if (pq.size() > 10) pq.pop(); 
+                if(pq.size() > 10) pq.pop();
             }
         }
 
@@ -35,6 +35,7 @@ public:
         }
 
         reverse(res.begin(), res.end());
+
         return res;
     }
     
